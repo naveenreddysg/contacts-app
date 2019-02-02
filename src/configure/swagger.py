@@ -3,7 +3,7 @@ from flasgger import Swagger
 def swagger(app):
     app.config['SWAGGER'] = {
         'uiversion': 3,
-        "title": "europe2 conferences",
+        "title": "Contacts-app",
         "headers": [
             ('Access-Control-Allow-Origin', '*'),
             ('Access-Control-Allow-Methods', "GET, POST, PUT, DELETE"),
