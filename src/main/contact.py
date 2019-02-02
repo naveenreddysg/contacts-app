@@ -91,7 +91,7 @@ def contact_delete():
 def contact_search():
     try:
         searchParm = request.args['searchParm']
-        res_data = contact_delete.search(searchParm)
+        res_data = contact_service.search(searchParm)
         # print(res_data)
         res_json = {'status': 1, 'data': res_data}
         # print(res_json)
