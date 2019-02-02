@@ -115,6 +115,7 @@ def reset_password():
         req_json = json.loads(request.data)
         req_data = req_json.get('data', None)
         print(req_data["email"])
+        print(req_data["password"])
         data = model_to_dict(session.query(ProfileModel).filter_by(email=req_data["email"]).first())
         print(data)
         data["password"] = pwd_to_hash(req_data["password"])
