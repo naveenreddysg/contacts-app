@@ -11,7 +11,8 @@ source ./venv/bin/activate
 ## installing requirements
 pip install -r requirements.txt
 
-##to run code
+## to run code
+
 python src/app.py
 
 ## swagger json to view api documentation
