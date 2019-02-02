@@ -1,5 +1,6 @@
 from flasgger import Swagger
 
+
 def swagger(app):
     app.config['SWAGGER'] = {
         'uiversion': 3,
