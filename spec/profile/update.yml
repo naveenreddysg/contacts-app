@@ -1,0 +1,29 @@
+Profile Information
+---
+tags:
+  - Profile
+parameters:
+  - name: body
+    in: body
+    schema:
+        type: object
+        properties:
+            data:
+                type: object
+                properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "abcd"
+                    email:
+                      type: string
+                      example: "abcd@gmail.com"
+                    password:
+                      type: string
+                      example: "test1234"
+
+responses:
+    200:
+        description: "status:1 is success; status: 0 is failure;"

@@ -1,0 +1,32 @@
+Contact Information
+---
+tags:
+  - Contact
+parameters:
+  - name: body
+    in: body
+    schema:
+        type: object
+        properties:
+            data:
+                type: object
+                properties:
+                    id:
+                      type: integer
+                      example: 1
+                    name:
+                      type: string
+                      example: "abcd"
+                    email:
+                      type: string
+                      example: "abcd@gmail.com"
+                    phone:
+                      type: string
+                      example: "+919876543210"
+                    mobile:
+                      type: string
+                      example: "+919876543210"
+
+responses:
+    200:
+        description: "status:1 is success; status: 0 is failure;"

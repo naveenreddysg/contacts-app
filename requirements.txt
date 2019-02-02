@@ -1,0 +1,9 @@
+Flask
+Flask-JWT
+Flask-SQLAlchemy
+mysqlclient
+flasgger
+Flask-Cors
+bcrypt
+cryptography
+pysqlite3
