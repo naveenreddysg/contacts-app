@@ -107,7 +107,7 @@ def contact_search():
 
 
 @blueprint.route('/contacts/search/page', methods=["GET"])
-# @jwt_required()
+@jwt_required()
 @swag_from('../../spec/contact/search.yml')
 def view():
     searchParm = request.args['searchParm']
