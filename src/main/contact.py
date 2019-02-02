@@ -110,11 +110,20 @@ def contact_search():
 @jwt_required()
 @swag_from('../../spec/contact/search.yml')
 def view():
-    searchParm = request.args['searchParm']
-    return jsonify(contact_service.get_paginated_list(searchParm,
-                '/api/v2/events/page',
-                start=request.args.get('start', 1),
-                limit=request.args.get('limit', 10)
-            ))
+    try:
 
+        searchParm = request.args['searchParm']
+        return jsonify(contact_service.get_paginated_list(searchParm,
+                    '/api/v2/events/page',
+                    start=request.args.get('start', 1),
+                    limit=request.args.get('limit', 10)
+                ))
+    except Exception as e:
+        print(e)
+        if e.args:
+            res_data = e.args[0]
+        else:
+            res_data = e
+        res_json = {'status': 0, 'error': res_data}
+        return jsonify(res_json)
 
