@@ -109,12 +109,12 @@ def contact_search():
 @blueprint.route('/contacts/search/page', methods=["GET"])
 @jwt_required()
 @swag_from('../../spec/contact/search.yml')
-def view():
+def paginate_contacts():
     try:
 
         searchParm = request.args['searchParm']
         return jsonify(contact_service.get_paginated_list(searchParm,
-                    '/api/v2/events/page',
+                    '/contacts/search/page',
                     start=request.args.get('start', 1),
                     limit=request.args.get('limit', 10)
                 ))
