@@ -114,9 +114,11 @@ def reset_password():
     try:
         req_json = json.loads(request.data)
         req_data = req_json.get('data', None)
+        print(req_data["email"])
         data = model_to_dict(session.query(ProfileModel).filter_by(email=req_data["email"]).first())
+        print(data)
         data["password"] = pwd_to_hash(req_data["password"])
-        res_data = profile_service.save(req_data)
+        res_data = profile_service.save(data)
         res_json = {'status': 1, 'data': res_data}
     except Exception as e:
         print(e)
