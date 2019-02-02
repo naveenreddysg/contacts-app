@@ -107,7 +107,7 @@ def profile_search():
     return jsonify(res_json)
 
 
-@blueprint.route("/resetpassword", methods=["GET"])
+@blueprint.route("/resetpassword", methods=["PUT"])
 # @jwt_required()
 @swag_from('../../spec/app/reset_password.yml')
 def reset_password():
