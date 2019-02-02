@@ -3,7 +3,7 @@ Profile Information
 tags:
   - Profile
 parameters:
-  - name: searchParm
+  - name: id
     in: query
     required: true
     type: string
