@@ -11,8 +11,9 @@ source ./venv/bin/activate
 ## installing requirements
 pip install -r requirements.txt
 
-## to run code
+## create database contact_book in mysql
 
+## to run code
 python src/app.py
 
 ## swagger json to view api documentation
