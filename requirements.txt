@@ -7,3 +7,4 @@ Flask-Cors
 bcrypt
 cryptography
 pysqlite3
+gunicorn
