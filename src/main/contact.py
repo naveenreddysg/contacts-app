@@ -1,9 +1,10 @@
 from flask import Blueprint
-from flask import request, jsonify, json
+from flask import request, jsonify, json, abort
 from flask_jwt import jwt_required, current_identity
 from flasgger import swag_from
-from services.contact_service import ContactService
+from services.contact_service import ContactService, ContactModel
 from utils.util import model_to_dict
+from db import session
 
 contact_service = ContactService()
 blueprint = Blueprint("contact", __name__)
@@ -103,3 +104,17 @@ def contact_search():
             res_data = e
         res_json = {'status': 0, 'error': res_data}
     return jsonify(res_json)
+
+
+@blueprint.route('/contacts/search/page', methods=["GET"])
+# @jwt_required()
+@swag_from('../../spec/contact/search.yml')
+def view():
+    searchParm = request.args['searchParm']
+    return jsonify(contact_service.get_paginated_list(searchParm,
+                '/api/v2/events/page',
+                start=request.args.get('start', 1),
+                limit=request.args.get('limit', 10)
+            ))
+
+
